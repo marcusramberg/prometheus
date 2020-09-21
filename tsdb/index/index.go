@@ -408,9 +408,9 @@ func (w *Writer) AddSeries(ref uint64, lset labels.Labels, chunks ...chunks.Meta
 	if err := w.ensureStage(idxStageSeries); err != nil {
 		return err
 	}
-	if labels.Compare(lset, w.lastSeries) <= 0 {
-		return errors.Errorf("out-of-order series added with label set %q", lset)
-	}
+	//if labels.Compare(lset, w.lastSeries) <= 0 {
+	//	return errors.Errorf("out-of-order series added with label set %q", lset)
+	//}
 
 	if ref < w.lastRef && len(w.lastSeries) != 0 {
 		return errors.Errorf("series with reference greater than %d already added", ref)
